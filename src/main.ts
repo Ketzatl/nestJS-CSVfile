@@ -3,6 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const port = 3000;
+  app.enableCors();
+  await app.listen(port);
+
+  console.log("\x1b[33m%s\x1b[0m", "\n\t >>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<"); // yellow text
+  console.log(`\t >> App listening on port ${port} <<`);
+  console.log(`\t >>>> http://localhost:3000/asset`);
+  console.log("\x1b[33m%s\x1b[0m", "\t >>>>>>>>>>>>>>>><<<<<<<<<<<<<<<< \n"); // yellow text
 }
 bootstrap();
